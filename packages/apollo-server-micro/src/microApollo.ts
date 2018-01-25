@@ -34,7 +34,9 @@ export function microGraphql(
         query = undefined;
       }
     } else {
+      console.log(req.url);
       query = url.parse(req.url, true).query;
+      console.log(query);
     }
 
     try {
