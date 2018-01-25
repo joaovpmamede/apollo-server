@@ -27,13 +27,17 @@ export function microGraphql(
 
   return async function(req: IncomingMessage, res: ServerResponse) {
     let query;
+    console.log(req.url);
     if (req.method === 'POST') {
       try {
+        console.log('POST');
         query = await json(req);
+        console.log(query);
       } catch (err) {
         query = undefined;
       }
     } else {
+      console.log('OTHER METHOD!');
       console.log(req.url);
       query = url.parse(req.url, true).query;
       console.log(query);
